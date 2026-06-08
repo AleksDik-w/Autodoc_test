@@ -3,14 +3,16 @@ program BigNumberAdd;
 {$APPTYPE CONSOLE}
 
 uses
-  SysUtils,
+  SysUtils, System,
   BigNumberCl in 'BigNumberCl.pas';
 var
   BigNumber: TBigNumberCl;
   vFile: string;
 begin
    // Имя файла входных-выходных данных
-    vFile := 'numbers.txt';
+  if ParamCount  < 1
+  then   vFile := 'numbers.txt'    //по умолчанию
+  else  vFile := ParamStr(1);
   try
     BigNumber := TBigNumberCl.Create;
    try
@@ -18,7 +20,7 @@ begin
      BigNumber.OpAdd;
      BigNumber.WriteToFile(vFile);
 
-     Writeln( 'Ok.');
+     Writeln( 'Ok. ' + BigNumber.FResult );
 
   except
     on E: Exception do
