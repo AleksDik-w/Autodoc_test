@@ -40,8 +40,8 @@ begin
 end;
 
 procedure TBigNumberCl.ReadFromFile(const FileName: string);
-var
-  F: TextFile;
+//var
+//  F: TextFile;
 begin
  { AssignFile(F, FileName);
   Reset(F);
@@ -122,8 +122,8 @@ begin
 end;
 
 procedure TBigNumberCl.WriteToFile(const FileName: string);
-var
-  F: TextFile;
+//var
+//  F: TextFile;
 begin
  {{AssignFile(F, FileName);
   Append(F);
