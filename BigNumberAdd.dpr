@@ -13,8 +13,8 @@ begin
   if ParamCount  < 1
   then   vFile := 'numbers.txt'    //по умолчанию
   else  vFile := ParamStr(1);
+  BigNumber := TBigNumberCl.Create;
   try
-    BigNumber := TBigNumberCl.Create;
    try
      BigNumber.ReadFromFile(vFile);
      BigNumber.OpAdd;
@@ -22,10 +22,9 @@ begin
 
      Writeln( 'Ok. ' + BigNumber.FResult );
 
-  except
-    on E: Exception do
-      Writeln('Error: ' + E.Message);
-  end;
+   except
+    on E: Exception do  Writeln('Error: ' + E.Message);
+   end;
   finally
     BigNumber.Free;
   end;
